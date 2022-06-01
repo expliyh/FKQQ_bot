@@ -1,0 +1,10 @@
+{
+  "host": "http://172.23.209.107",
+  "port": 8888,
+  "group_blacklist": [],
+  "friend_blacklist": [],
+  "blocked_users": [],
+  "webhook": false,
+  "webhook_post_url": "http://172.23.217.153:5000",
+  "webhook_timeout": 20
+}
