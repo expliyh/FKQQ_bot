@@ -6,3 +6,4 @@ whitenoise
 requests
 PyMySQL
 cryptography
+botoy
