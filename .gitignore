@@ -127,5 +127,3 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-plugins/bot_petpet/
-plugins/bot_qq_msg_proxy_expliyh/
