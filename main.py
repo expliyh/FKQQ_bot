@@ -1,10 +1,11 @@
 import os
 import database
 import requests
-import json
 import sys
 import random
 import asyncio
+import platform
+import psutil
 
 if __name__ == '__main__':
     # print("Program started!")
@@ -22,7 +23,8 @@ if __name__ == '__main__':
     # print("Db connected!")
 
     from botoy import *
-    from botoy.decorators import *
+    from botoy.async_decorators import *
+    from botoy.sugar import Text
 
     bot = AsyncBotoy(
         host=jconfig.host,
@@ -42,7 +44,36 @@ if __name__ == '__main__':
         S.text("请不要发送含隐私内容的消息！")
 
 
-    @from_these_groups(100867704, 760088301)
+    @bot.on_group_msg
+    @from_these_groups(760088301, 100867704)
+    @equal_content("/sysinfo")
+    async def sysinfo(ctx: GroupMsg):
+        str1 = "[System Info]\n"
+        str1 += "System: "
+        str1 += platform.platform()
+        str1 += "\nProcessor: "
+        str1 += platform.processor()
+        str1 += '\nArchitecture: '
+        str1 += str(platform.architecture())
+        mem = psutil.virtual_memory()
+        str1 += "Memory: "
+        str1 += str(float(mem.used / 1024 / 1024 / 1024))
+        str1 += "/"
+        str1 += str(int(mem.total / 1024 / 1024 / 1024))
+        str1 += "GB"
+        action = AsyncAction(ctx.CurrentQQ)
+        await action.replyGroupMsg(
+            group=ctx.FromGroupId,
+            content=str1,
+            msgSeq=ctx.MsgSeq,
+            user=ctx.FromUserId,
+            rawContent=ctx.Content,
+        )
+        await action.close()
+
+
+    @bot.on_group_msg
+    @from_these_groups(760088301, 100867704)
     @equal_content("/test")
     def test(ctx: GroupMsg):
         Action(ctx.CurrentQQ).revokeGroupMsg(

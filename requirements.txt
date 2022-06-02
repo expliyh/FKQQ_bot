@@ -8,5 +8,8 @@ PyMySQL~=1.0.2
 cryptography
 botoy~=8.3
 
+
+psutil
+
 httpx~=0.23.0
 demjson~=1.6
