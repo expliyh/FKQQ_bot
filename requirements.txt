@@ -8,6 +8,10 @@ PyMySQL~=1.0.2
 cryptography
 botoy~=8.3
 
+pillow
+aiofiles
+qrcode
+pydantic
 
 psutil
 
