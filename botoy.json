@@ -1,6 +1,6 @@
 {
-  "host": "http://172.23.211.230",
-  "port": 8888,
+  "host": "http://192.168.100.140",
+  "port": 8889,
   "group_blacklist": [],
   "friend_blacklist": [],
   "blocked_users": [],
