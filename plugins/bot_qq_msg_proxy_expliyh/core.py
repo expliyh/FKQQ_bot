@@ -3,7 +3,6 @@ from botoy.parser import group as gp
 import requests
 import base64
 
-
 def say_hello(name):
     return f"Hello, {name}!"
 
