@@ -33,7 +33,7 @@ async def get_resource(path: str, name: str) -> bytes:
     file_path = data_path / path / name
     if not file_path.exists():
         file_path.parent.mkdir(parents=True, exist_ok=True)
-        url = f"https://cdn.jsdelivr.net/gh/MeetWq/nonebot-plugin-petpet@master/resources/{path}/{name}"
+        url = f"https://delivr.expli.top/gh/MeetWq/nonebot-plugin-petpet@master/resources/{path}/{name}"
         data = await download_url(url)
         if data:
             with file_path.open("wb") as f:
